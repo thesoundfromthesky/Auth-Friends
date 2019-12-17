@@ -1,0 +1,9 @@
+body {
+  margin: 0;
+  background-image: linear-gradient(
+    135deg,
+    rgb(86, 86, 230) 0%,
+    rgba(240, 21, 240, 0.993) 100%
+  );
+  min-height: 100vh;
+}
