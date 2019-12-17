@@ -4,6 +4,8 @@ import { Route } from "react-router-dom";
 import "./App.css";
 import Login from "./Login";
 import Navigation from "./Navigation";
+import PrivateRoute from "./PrivateRoute";
+import FriendsList from "./FriendsList";
 
 // ## Build the App!
 // * Add a route for a login page and build out a simple login form
@@ -25,6 +27,7 @@ function App() {
     <div className="App">
       <Navigation />
       <Route path="/login" component={Login} />
+      <PrivateRoute path="/friendslist" component={FriendsList} />
     </div>
   );
 }
