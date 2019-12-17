@@ -6,4 +6,5 @@ body {
     rgba(240, 21, 240, 0.993) 100%
   );
   min-height: 100vh;
+  overflow: hidden;
 }

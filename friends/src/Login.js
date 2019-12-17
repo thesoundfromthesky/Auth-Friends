@@ -25,8 +25,20 @@ export default function Login() {
       });
   }
 
+  function guest() {
+    axios
+      .post("http://localhost:5000/api/login", {
+        username: "Lambda School",
+        password: "i<3Lambd4"
+      })
+      .then(({ data }) => {
+        window.localStorage.setItem("token", data.payload);
+        history.push("/friendslist");
+      });
+  }
+
   return (
-    <div>
+    <div className="login-form">
       <Formik
         initialValues={{ username: "", password: "" }}
         validationSchema={Yup.object({
@@ -38,10 +50,7 @@ export default function Login() {
             .required("Required")
         })}
         onSubmit={(values, { resetForm }) => {
-          login(
-            { username: "Lambda School", password: "i<3Lambd4" },
-            resetForm
-          );
+          login(values, resetForm);
         }}
       >
         {({ isSubmitting }) => (
@@ -53,7 +62,7 @@ export default function Login() {
               name="username"
               placeholder="type username"
             />
-            <ErrorMessage name="username" component="div" />
+            <ErrorMessage name="username" className="error" component="div" />
             <label htmlFor="password">password: </label>
             <Field
               id="password"
@@ -62,12 +71,19 @@ export default function Login() {
               placeholder="type password"
               autoComplete="off"
             />
-            <ErrorMessage name="password" component="div" />
+            <ErrorMessage name="password" className="error" component="div" />
             {isSubmitting ? (
               <Spinner />
             ) : (
               <button type="submit" disabled={isSubmitting}>
                 Submit
+              </button>
+            )}
+            {isSubmitting ? (
+              <Spinner />
+            ) : (
+              <button type="button" onClick={guest} disabled={isSubmitting}>
+                GuestMode
               </button>
             )}
           </Form>

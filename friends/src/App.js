@@ -26,6 +26,13 @@ function App() {
   return (
     <div className="App">
       <Navigation />
+      <Route
+        exact
+        path="/"
+        render={() => {
+          return <div className="home">login to view friends list</div>;
+        }}
+      />
       <Route path="/login" component={Login} />
       <PrivateRoute path="/friendslist" component={FriendsList} />
     </div>
