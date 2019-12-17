@@ -9,7 +9,7 @@ import React from "react";
 export default function Friend({ friend }) {
   const { name, age, email } = friend;
   return (
-    <div>
+    <div className="friend">
       <div>Name: {name}</div>
       <div>Age: {age}</div>
       <div>Email: {email}</div>

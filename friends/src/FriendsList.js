@@ -36,11 +36,14 @@ export default function FriendsList() {
       });
   }
   return (
-    <div>
+    <div className="friend-list">
       <FriendForm post={postFriend} />
-      {friendsList.map(friend => (
-        <Friend key={friend.id} friend={friend} />
-      ))}
+      <div className="title">Friend List</div>
+      <div>
+        {friendsList.map(friend => (
+          <Friend key={friend.id} friend={friend} />
+        ))}
+      </div>
     </div>
   );
 }

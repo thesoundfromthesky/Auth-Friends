@@ -9,10 +9,9 @@ import Spinner from "./Spinner";
 //     age: 24,
 //     email: 'joe@lambdaschool.com',
 // }
-export default function FriendForm({post}) {
-
+export default function FriendForm({ post }) {
   return (
-    <div>
+    <div className="friend-form">
       <Formik
         initialValues={{ name: "", age: "", email: "" }}
         validationSchema={Yup.object({
@@ -27,22 +26,17 @@ export default function FriendForm({post}) {
             .required("Required")
         })}
         onSubmit={(values, { resetForm }) => {
-            post(values, resetForm);
+          post(values, resetForm);
         }}
       >
         {({ isSubmitting }) => (
           <Form>
             <label htmlFor="name">name: </label>
             <Field id="name" type="text" name="name" placeholder="type name" />
-            <ErrorMessage name="name" component="div" />
+            <ErrorMessage name="name" className="error" component="div" />
             <label htmlFor="age">age: </label>
-            <Field
-              id="age"
-              type="age"
-              name="age"
-              placeholder="type age"
-            />
-            <ErrorMessage name="age" component="div" />
+            <Field id="age" type="age" name="age" placeholder="type age" />
+            <ErrorMessage name="age" className="error" component="div" />
             <label htmlFor="email">age: </label>
             <Field
               id="email"
@@ -50,7 +44,7 @@ export default function FriendForm({post}) {
               name="email"
               placeholder="type email"
             />
-            <ErrorMessage name="email" component="div" />
+            <ErrorMessage name="email" className="error" component="div" />
             {isSubmitting ? (
               <Spinner />
             ) : (

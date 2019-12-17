@@ -46,6 +46,44 @@ a:hover {
   color: red;
   font-size: 1rem;
 }
+
+.friend-form {
+  display: flex;
+  justify-content: center;
+}
+
+.friend-form > form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: #fff;
+  font-size: 2rem;
+}
+
+.friend-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.title {
+  text-align: center;
+  color: #fff;
+  font-size: 2rem;
+  border: 10px solid red;
+  max-width: 300px;
+  border-radius: 30px;
+  margin: 20px 0;
+  padding: 10px 20px;
+}
+
+.friend {
+  color: #fff;
+  font-size: 2rem;
+  border-bottom: 2px solid tomato;
+  margin-bottom: 50px;
+}
 .loader {
   color: #ffffff;
   font-size: 90px;
